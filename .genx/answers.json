@@ -1,0 +1,30 @@
+{
+  "appName": "tuesday",
+  "forceOverwrite": true,
+  "appSeed": {
+    "type": "remote",
+    "name": "Quick Start Application",
+    "about": "The quick start application seed.",
+    "vcsUrl": "https://genesisglobal.jfrog.io/artifactory/api/vcs",
+    "vcsOperation": "downloadBranch",
+    "vcsRemote": "github-repos",
+    "remoteUser": "genesislcap",
+    "remoteRepo": "blank-app-seed",
+    "remoteBranch": "master",
+    "remoteName": "upstream",
+    "gitOptions": {
+      "--rebase": "true"
+    }
+  },
+  "pkgScope": "genesislcap",
+  "pkgName": "tuesday",
+  "dsName": "alpha",
+  "baseDsPackage": "@genesislcap/foundation-ui",
+  "apiHost": "ws://localhost/gwf/",
+  "genesisVersion": "6.0.1",
+  "deployPluginVersion": "6.0.2",
+  "kotlinVersion": "1.6.10",
+  "groupId": "global.genesis",
+  "applicationVersion": "1.0.0-SNAPSHOT",
+  "localGenId": "TUESDAY"
+}

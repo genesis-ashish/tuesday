@@ -1,0 +1,36 @@
+<!--
+!
+!   System              : Genesis Business Library
+!   Sub-System          : multi-pro-code-test Configuration
+!   Version             : 1.0
+!   Copyright           : (c) Genesis
+!   Date                : 2022-03-18
+!   Function : Provide Process Definitions Config for multi-pro-code-test.
+!
+!   Modification History
+!
+-->
+<processes>
+    <process name="TUESDAY_DATASERVER">
+        <groupId>TUESDAY</groupId>
+        <start>true</start>
+        <options>-Xmx1024m -DXSD_VALIDATE=false</options>
+        <module>genesis-pal-dataserver</module>
+        <package>global.genesis.dataserver.pal</package>
+        <script>tuesday-dataserver.kts</script>
+        <description>Displays real-time details</description>
+        <language>pal</language>
+        <loggingLevel>DEBUG,DATADUMP_ON</loggingLevel>
+    </process>
+    <process name="TUESDAY_EVENT_HANDLER">
+        <groupId>TUESDAY</groupId>
+        <start>true</start>
+        <options>-Xmx256m -DRedirectStreamsToLog=true -DXSD_VALIDATE=false</options>
+        <module>genesis-pal-eventhandler</module>
+        <package>global.genesis.eventhandler.pal</package>
+        <script>tuesday-eventhandler.kts</script>
+        <description>Handles events</description>
+        <classpath>tuesday-messages*,tuesday-eventhandler*</classpath>
+        <language>pal</language>
+    </process>
+</processes>

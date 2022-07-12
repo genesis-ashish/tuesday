@@ -1,0 +1,8 @@
+{
+  "name": "@genesislcap/tuesday-mobile-client",
+  "description": "Hello World App Mobile Client",
+  "version": "0.0.1",
+  "private": true,
+  "license": "UNLICENSED",
+  "main": "dist/tbd.js"
+}
