@@ -26,6 +26,7 @@ export class Home extends FASTElement {
   @observable public price: string;
   @observable public tradeSymbol: string;
   @observable public tradeSide: string = 'BUY';
+  @observable public comment: string;
   @observable public serverResponse;
 
   public connectedCallback() {
@@ -75,6 +76,7 @@ export class Home extends FASTElement {
         QUANTITY: this.quantity,
         PRICE: this.price,
         DIRECTION: this.tradeSide,
+        COMMENT: this.comment,
       },
       IGNORE_WARNINGS: true,
       VALIDATE: false,
@@ -82,6 +84,7 @@ export class Home extends FASTElement {
     this.tradeSymbol = '';
     this.quantity = '';
     this.price = '';
+    this.comment='';
     logger.debug('EVENT_TRADE_INSERT result -> ', this.serverResponse);
   }
 }

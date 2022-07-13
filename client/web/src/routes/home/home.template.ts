@@ -12,6 +12,7 @@ export const tutorialColumnDefs: ColDef[] = [
     {field: 'QUANTITY', headerName: 'QUANTITY'},
     {field: 'PRICE', headerName: 'PRICE', valueFormatter: formatNumber(2)},
     {field: 'DIRECTION', headerName: 'DIRECTION'},
+    {field: 'COMMENT', headerName: 'COMMENT'}
 ];
 
 export const HomeTemplate = html<Home>`
@@ -44,6 +45,9 @@ export const HomeTemplate = html<Home>`
             <zero-option value='BUY'>BUY</zero-option>
             <zero-option value='SELL'>SELL</zero-option>
         </zero-select>
+        <zero-text-field type="text" :value=${sync(x=> x.comment)}>
+            <span>Comment</span>
+        </zero-text-field>
 
         <zero-button @click=${x=> x.insertTradeData()}>Add Trade</zero-button>
     </zero-card>
