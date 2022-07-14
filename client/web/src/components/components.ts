@@ -4,6 +4,10 @@
  */
 import {allComponents, provideFASTDesignSystem} from '@microsoft/fast-components';
 import {logger} from '../utils';
+import * as ShoelaceComponents from '@shoelace-style/shoelace';
+
+
+ShoelaceComponents;
 
 provideFASTDesignSystem().register(allComponents);
 

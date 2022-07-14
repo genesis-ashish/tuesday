@@ -6,6 +6,7 @@ import {HomeStyles as styles} from './home.styles';
 import {logger} from '../../utils';
 import {Select} from '@microsoft/fast-foundation';
 import {AgGrid} from '@genesislcap/foundation-zero';
+import {notifyError, notifySuccess, notifyWarningChoices } from '../../utils/notifs';
 
 const name = 'home-route';
 
@@ -68,6 +69,26 @@ export class Home extends FASTElement {
   public get somethingActionText() {
     return this.something ? 'Do something once?' : `You've already done that thing!`;
   }
+
+  public async submitTradePreCheck() {
+    notifyWarningChoices("Would you like to submit this trade?")
+
+      const yesBtn = document.getElementById('sendYesBtn')
+      const noBtn = document.getElementById('sendNoBtn')
+      const submitAlert = document.getElementById('submitTradeConf')
+
+      yesBtn?.addEventListener('click', async (e: Event) => {
+        this.insertTradeData()
+        notifySuccess("Trade was successfully submitted!")
+        submitAlert.remove()
+      });
+
+      noBtn?.addEventListener('click', (e: Event) => {
+        notifyError("Trade was not added to the database.")
+        submitAlert.remove()
+      });
+      
+    }
 
   public async insertTradeData() {
     this.serverResponse = await this.connection.commitEvent('EVENT_TRADE_INSERT', {

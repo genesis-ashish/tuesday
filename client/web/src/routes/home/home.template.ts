@@ -49,6 +49,6 @@ export const HomeTemplate = html<Home>`
             <span>Comment</span>
         </zero-text-field>
 
-        <zero-button @click=${x=> x.insertTradeData()}>Add Trade</zero-button>
+        <zero-button @click=${x=> x.submitTradePreCheck()}>Add Trade</zero-button>
     </zero-card>
 `;
