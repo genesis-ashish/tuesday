@@ -70,6 +70,20 @@ export class Home extends FASTElement {
     return this.something ? 'Do something once?' : `You've already done that thing!`;
   }
 
+  public getCriteria() {
+    let criteria: String = "DIRECTION== 'NOT VALID'"
+    if (this.auth.loggedUserResult.permissions != undefined) {
+      if(this.auth.loggedUserResult.permissions.includes('ADMIN_RIGHT')){
+      criteria = ""
+      }else if (this.auth.loggedUserResult.permissions.includes('SELL_RIGHT')){
+        criteria = "DIRECTION== 'SELL'"
+      }else  if (this.auth.loggedUserResult.permissions.includes('BUY_RIGHT')){
+        criteria = "DIRECTION== 'BUY'"
+      }
+    }
+    return criteria;
+  }
+
   public async submitTradePreCheck() {
     notifyWarningChoices("Would you like to submit this trade?")
 

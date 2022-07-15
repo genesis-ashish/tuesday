@@ -19,7 +19,9 @@ export const HomeTemplate = html<Home>`
     <zero-card class="trade-card">
         <zero-ag-grid ${ref('tradesGrid')} rowHeight="45" only-template-col-defs>
             ${when(x => x.connection.isConnected, html`
-      <ag-genesis-datasource resourceName="ALL_TRADES"></ag-genesis-datasource>
+      <ag-genesis-datasource resourceName="ALL_TRADES"
+      criteria = ${x => `${x.getCriteria()}`}
+      />
       ${repeat(() => tutorialColumnDefs, html`
         <ag-grid-column :definition="${x => x}" />
       `)}
